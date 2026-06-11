@@ -1,6 +1,183 @@
-/******* Change Box Model ***************/
-*,
-*:before,
-*:after {
+* {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-image: url("/images/site/checkerboard.jpg");
+  background-position: center;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #222;
+  line-height: 1.4;
+  padding: 10px;
+  margin: 0 auto;
+  max-width: 960px;
+  border: 4px solid #02b0d4;
+  border-radius: 4px;
+}
+
+#top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.siteName {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.siteName a {
+  color: #222;
+  text-decoration: none;
+}
+
+#tools {
+  font-size: 1rem;
+}
+
+#tools a {
+  color: #222;
+  text-decoration: none;
+}
+
+nav {
+  background-color: #222;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.container h1 {
+  margin-bottom: 20px;
+}
+
+.columns {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+}
+
+.column h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.column ul {
+  padding-left: 20px;
+}
+
+.column li {
+  margin-bottom: 15px;
+}
+
+.hero {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.hero img {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+}
+
+.hero-text {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #02b0d4;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 5px;
+}
+
+.hero-text h2 {
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  margin-bottom: 5px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #02b0d4;
+  color: #222;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.grid-item {
+  background-color: #02b0d4;
+  height: 120px;
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid-item img {
+  max-width: 80px;
+  height: auto;
+}
+
+.grid-item figcaption {
+  margin-top: auto;
+}
+
+.grid-item a {
+  background-color: white;
+  color: #222;
+  text-decoration: none;
+  padding: 4px 8px;
+  font-weight: bold;
+}
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+@media screen and (min-width: 481px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .columns {
+    flex-direction: row;
+    gap: 40px;
+  }
 }
