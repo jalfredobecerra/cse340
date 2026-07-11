@@ -56,3 +56,50 @@ VALUES
     (3, 'Winter Coat Collection', 'Gather and sort donated coats for families in need this winter.', 'UnityServe Main Office', '2026-09-09'),
     (3, 'Homeless Shelter Meal Service', 'Prepare and serve meals at the downtown homeless shelter.', 'Hope Street Shelter', '2026-09-23'),
     (3, 'Youth Mentorship Kickoff', 'Launch a new mentorship program pairing volunteers with local youth.', 'Community Youth Center', '2026-10-07');
+
+CREATE TABLE category (
+    category_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE
+);
+
+CREATE TABLE project_category (
+    project_id INTEGER NOT NULL REFERENCES service_project(project_id),
+    category_id INTEGER NOT NULL REFERENCES category(category_id),
+    PRIMARY KEY (project_id, category_id)
+);
+
+INSERT INTO category (name) VALUES
+    ('Environmental'),
+    ('Educational'),
+    ('Community Service'),
+    ('Health and Wellness');
+
+-- Associate every project with at least one category
+INSERT INTO project_category (project_id, category_id) VALUES
+    -- BrightFuture Builders projects
+    (1, 3),  -- Park Cleanup -> Community Service
+    (1, 1),  -- Park Cleanup -> Environmental
+    (2, 3),  -- Habitat Build Day -> Community Service
+    (3, 3),  -- Neighborhood Mural Project -> Community Service
+    (4, 3),  -- Playground Renovation -> Community Service
+    (4, 4),  -- Playground Renovation -> Health and Wellness
+    (5, 3),  -- Senior Home Repairs -> Community Service
+    (5, 4),  -- Senior Home Repairs -> Health and Wellness
+
+    -- GreenHarvest Growers projects
+    (6, 1),  -- Community Garden Planting -> Environmental
+    (7, 1),  -- Farmers Market Volunteer Day -> Environmental
+    (8, 1),  -- Composting Workshop -> Environmental
+    (8, 2),  -- Composting Workshop -> Educational
+    (9, 1),  -- Fruit Tree Planting Initiative -> Environmental
+    (10, 1), -- Harvest Food Bank Drop-off -> Environmental
+    (10, 4), -- Harvest Food Bank Drop-off -> Health and Wellness
+
+    -- UnityServe Volunteers projects
+    (11, 3), -- Food Drive -> Community Service
+    (11, 4), -- Food Drive -> Health and Wellness
+    (12, 2), -- Community Tutoring -> Educational
+    (13, 3), -- Winter Coat Collection -> Community Service
+    (14, 3), -- Homeless Shelter Meal Service -> Community Service
+    (14, 4), -- Homeless Shelter Meal Service -> Health and Wellness
+    (15, 2); -- Youth Mentorship Kickoff -> Educational
