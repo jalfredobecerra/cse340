@@ -30,6 +30,17 @@
                     </a>
                 </li>
             </ul>
-            <% } %>
+
+            <% if (categories.length> 0) { %>
+                <h2>Categories</h2>
+                <ul class="tag-list">
+                    <% categories.forEach(category=> { %>
+                        <li><a class="tag" href="/category/<%= category.category_id %>">
+                                <%= category.name %>
+                            </a></li>
+                        <% }); %>
+                </ul>
+                <% } %>
+                    <% } %>
 
 <%- include('partials/footer') %>
