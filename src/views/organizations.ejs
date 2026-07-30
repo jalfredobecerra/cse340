@@ -11,7 +11,9 @@
                 <img class="card__logo" src="/images/<%= organization.logo_filename %>"
                     alt="<%= organization.name %> logo">
                 <p class="card__name">
-                    <%= organization.name %>
+                    <a href="/organization/<%= organization.organization_id %>">
+                        <%= organization.name %>
+                    </a>
                 </p>
                 <p class="card__contact"><a href="mailto:<%= organization.contact_email %>">
                         <%= organization.contact_email %>
@@ -20,4 +22,4 @@
             <% }); %>
     </ul>
 
-    <%- include('partials/footer') %>
+<%- include('partials/footer') %>
