@@ -1,0 +1,35 @@
+<%- include('partials/header') %>
+
+    <% if (!project) { %>
+        <h1>Project Not Found</h1>
+        <p class="page-intro">We couldn't find a service project with that ID.</p>
+        <p><a href="/projects">&larr; Back to upcoming projects</a></p>
+        <% } else { %>
+            <h1>
+                <%= project.title %>
+            </h1>
+
+            <p class="page-intro">
+                <%= project.description %>
+            </p>
+
+            <ul class="panel-list">
+                <li class="panel-list__item">
+                    <strong>Date</strong>
+                    <%= new Date(project.date).toLocaleDateString('en-US', { year: 'numeric' , month: 'long' ,
+                        day: 'numeric' }) %>
+                </li>
+                <li class="panel-list__item">
+                    <strong>Location</strong>
+                    <%= project.location %>
+                </li>
+                <li class="panel-list__item">
+                    <strong>Organization</strong>
+                    <a href="/organization/<%= project.organization_id %>">
+                        <%= project.organization_name %>
+                    </a>
+                </li>
+            </ul>
+            <% } %>
+
+<%- include('partials/footer') %>
