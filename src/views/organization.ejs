@@ -19,6 +19,8 @@
                     <%= organizationDetails.contact_email %>
                 </a></p>
 
+            <a href="/edit-organization/<%= organizationDetails.organization_id %>" class="button">Edit Organization</a>
+
             <h2>Service Projects</h2>
 
             <% if (projects.length===0) { %>
