@@ -41,6 +41,9 @@
                         <% }); %>
                 </ul>
                 <% } %>
+
+                    <a href="/edit-project/<%= project.project_id %>" class="button">Edit Project</a>
+                    <a href="/assign-categories/<%= project.project_id %>" class="button">Edit Categories</a>
                     <% } %>
 
 <%- include('partials/footer') %>

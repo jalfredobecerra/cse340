@@ -1,5 +1,4 @@
 import express from 'express';
-
 import { showHomePage } from './controllers/index.js';
 import {
     showOrganizationsPage,
@@ -15,9 +14,16 @@ import {
     showProjectDetailsPage,
     showNewProjectForm,
     processNewProjectForm,
+    showEditProjectForm,
+    processEditProjectForm,
     projectValidation
 } from './controllers/projects.js';
-import { showCategoriesPage, showCategoryDetailsPage } from './controllers/categories.js';
+import {
+    showCategoriesPage,
+    showCategoryDetailsPage,
+    showAssignCategoriesForm,
+    processAssignCategoriesForm
+} from './controllers/categories.js';
 import { testErrorPage } from './controllers/errors.js';
 
 const router = express.Router();
@@ -50,5 +56,15 @@ router.get('/new-project', showNewProjectForm);
 
 // Route to handle new project form submission
 router.post('/new-project', projectValidation, processNewProjectForm);
+
+// Routes to handle the assign categories to project form
+router.get('/assign-categories/:projectId', showAssignCategoriesForm);
+router.post('/assign-categories/:projectId', processAssignCategoriesForm);
+
+// Route to display the edit project form
+router.get('/edit-project/:id', showEditProjectForm);
+
+// Route to handle the edit project form submission
+router.post('/edit-project/:id', projectValidation, processEditProjectForm);
 
 export default router;
