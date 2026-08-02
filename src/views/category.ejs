@@ -9,6 +9,8 @@
                 <%= category.name %>
             </h1>
 
+            <a href="/edit-category/<%= category.category_id %>" class="button">Edit Category</a>
+
             <% if (projects.length===0) { %>
                 <p class="page-intro">No service projects are currently listed in this category.</p>
                 <% } else { %>

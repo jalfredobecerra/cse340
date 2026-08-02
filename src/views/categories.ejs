@@ -1,14 +1,18 @@
 <%- include('partials/header') %>
 
-<h1>Service Project Categories</h1>
-<p class="page-intro">Browse the types of service opportunities available across our network.</p>
+    <h1>Service Project Categories</h1>
+    <p class="page-intro">Browse the types of service opportunities available across our network.</p>
 
-<ul class="category-grid">
-    <% categories.forEach(category => { %>
-        <li class="category-card">
-            <a href="/category/<%= category.category_id %>"><%= category.name %></a>
-        </li>
-    <% }); %>
-</ul>
+    <ul class="category-grid">
+        <% categories.forEach(category=> { %>
+            <li class="category-card">
+                <a href="/category/<%= category.category_id %>">
+                    <%= category.name %>
+                </a>
+            </li>
+            <% }); %>
+    </ul>
+
+    <a href="/new-category" class="button">Add New Category</a>
 
 <%- include('partials/footer') %>
