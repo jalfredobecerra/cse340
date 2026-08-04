@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+
+    <h1>
+        <%= title %>
+    </h1>
+    <p class="page-intro">All accounts currently registered in the system.</p>
+
+    <ul class="panel-list">
+        <% users.forEach(user=> { %>
+            <li class="panel-list__item">
+                <strong>
+                    <%= user.name %>
+                </strong>
+                <%= user.email %> &mdash; <span class="tag">
+                        <%= user.role_name %>
+                    </span>
+            </li>
+            <% }); %>
+    </ul>
+
+<%- include('partials/footer') %>

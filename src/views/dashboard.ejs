@@ -15,4 +15,8 @@
         </div>
     </div>
 
+    <% if (user && user.role_name==='admin' ) { %>
+        <a href="/users" class="button">View All Users</a>
+        <% } %>
+
 <%- include('partials/footer') %>
