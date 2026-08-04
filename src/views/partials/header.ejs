@@ -27,12 +27,20 @@
             <nav class="main-nav" id="mainNav" aria-label="Primary">
                 <ul>
                     <li><a href="/" <% if (title==='Home' ) { %>aria-current="page"<% } %>>Home</a></li>
-                    <li><a href="/organizations" <% if (title==='Our Partner Organizations' ) { %>aria-current="page"<%
-                                } %>>Organizations</a></li>
+                    <li><a href="/organizations" <% if (title==='Our Partner Organizations' ) { %>aria-current="page"<% } %>
+                                >Organizations</a></li>
                     <li><a href="/projects" <% if (title==='Service Projects' ) { %>aria-current="page"<% } %>
                                 >Projects</a></li>
                     <li><a href="/categories" <% if (title==='Categories' ) { %>aria-current="page"<% } %>
                                 >Categories</a></li>
+                    <% if (isLoggedIn) { %>
+                        <li><a href="/logout">Logout</a></li>
+                        <% } else { %>
+                            <li><a href="/register" <% if (title==='Register' ) { %>aria-current="page"<% } %>
+                                        >Register</a></li>
+                            <li><a href="/login" <% if (title==='Login' ) { %>aria-current="page"<% } %>
+                                        >Login</a></li>
+                            <% } %>
                 </ul>
             </nav>
         </div>
