@@ -356,8 +356,12 @@ main>h1:first-child {
     display: inline-block;
     background-color: var(--color-accent-dark);
     color: #fff;
+    font-family: var(--font-body);
+    font-size: var(--fs-base);
     font-weight: 700;
     text-decoration: none;
+    border: none;
+    cursor: pointer;
     padding: var(--space-3) var(--space-6);
     border-radius: var(--radius-sm);
     margin-top: var(--space-5);
