@@ -17,6 +17,8 @@ import {
     processNewProjectForm,
     showEditProjectForm,
     processEditProjectForm,
+    processVolunteerSignup,
+    processVolunteerRemoval,
     projectValidation
 } from './controllers/projects.js';
 import {
@@ -80,6 +82,10 @@ router.get('/edit-project/:id', requireRole('admin'), showEditProjectForm);
 
 // Route to handle the edit project form submission
 router.post('/edit-project/:id', requireRole('admin'), projectValidation, processEditProjectForm);
+
+// Routes to handle volunteering for a project
+router.post('/project/:id/volunteer', requireLogin, processVolunteerSignup);
+router.post('/project/:id/unvolunteer', requireLogin, processVolunteerRemoval);
 
 // Routes to handle the assign categories to project form
 router.get('/assign-categories/:projectId', requireRole('admin'), showAssignCategoriesForm);

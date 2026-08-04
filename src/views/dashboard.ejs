@@ -15,8 +15,31 @@
         </div>
     </div>
 
-    <% if (user && user.role_name==='admin' ) { %>
-        <a href="/users" class="button">View All Users</a>
-        <% } %>
+    <h2>Your Volunteer Projects</h2>
+
+    <% if (volunteerProjects.length===0) { %>
+        <p class="page-intro">You haven't signed up to volunteer for any projects yet.</p>
+        <% } else { %>
+            <ul class="panel-list">
+                <% volunteerProjects.forEach(project=> { %>
+                    <li class="panel-list__item">
+                        <a href="/project/<%= project.project_id %>"><strong>
+                                <%= project.title %>
+                            </strong></a>
+                        (<a href="/organization/<%= project.organization_id %>">
+                            <%= project.organization_name %>
+                        </a>)
+                        <form action="/project/<%= project.project_id %>/unvolunteer" method="POST"
+                            style="margin-top: var(--space-2);">
+                            <button type="submit" class="button">Remove Myself as Volunteer</button>
+                        </form>
+                    </li>
+                    <% }); %>
+            </ul>
+            <% } %>
+
+                <% if (user && user.role_name==='admin' ) { %>
+                    <a href="/users" class="button">View All Users</a>
+                    <% } %>
 
 <%- include('partials/footer') %>
